@@ -2,10 +2,7 @@ package com.example.lab1demorest.controller;
 
 import com.example.lab1demorest.Entity.result;
 import com.example.lab1demorest.service.fibonacciCount;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 
@@ -16,10 +13,6 @@ public class ExController {
     public ExController(fibonacciCount service) {
         this.service = service;
     }
-    @GetMapping("/fibonacci")
-    public result fibonacci(@RequestParam BigInteger param1){
-        return service.count(param1);
-    }
-
-
+    @GetMapping( "/fibonacci")
+    public result fibonacci(@RequestParam BigInteger param1){return service.count(param1);}
 }

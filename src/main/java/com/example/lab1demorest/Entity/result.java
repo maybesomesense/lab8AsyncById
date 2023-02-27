@@ -11,5 +11,4 @@ public class result {
     public BigInteger getResult(){
         return result;
     }
-
 }
