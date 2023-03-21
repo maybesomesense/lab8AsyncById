@@ -3,8 +3,8 @@ package com.example.lab1demorest.entity;
 import java.math.BigInteger;
 
 public class Result {
-    BigInteger result;
-    BigInteger index;
+    private BigInteger result;
+    private BigInteger index;
 
     public Result(BigInteger result, BigInteger index){
         this.index = index;

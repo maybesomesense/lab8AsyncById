@@ -6,9 +6,20 @@ import org.springframework.stereotype.Service;
 import java.math.BigInteger;
 
 @Service
-public class FibonacciCount {
+public class FibonacciService {
     // рекурсивный вариант уходит в overflow где-то на 40 индексе, поэтому идеальной реализацией будет через цикл
     public Result count(BigInteger index){
+        // пример INTERNAL_SERVER_ERROR
+        if(index == null){
+            throw new NullPointerException("throws NullPointerException");
+        }
+        else if(index.compareTo(BigInteger.valueOf(0)) < 0){
+            throw new NullPointerException("throws NullPointerException");
+        }
+        else if(index.compareTo(BigInteger.valueOf(1000)) > 0){
+            throw new NullPointerException("throws NullPointerException");
+        }
+
         BigInteger OldValue = BigInteger.valueOf(0);
         BigInteger Value = BigInteger.valueOf(1);
         BigInteger Hold;
