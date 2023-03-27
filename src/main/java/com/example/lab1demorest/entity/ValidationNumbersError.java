@@ -1,5 +1,7 @@
 package com.example.lab1demorest.entity;
 
+import com.example.lab1demorest.validator.ExampleValidator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,5 +23,20 @@ public class ValidationNumbersError {
 
     public void setStatus(String status){
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        ValidationNumbersError object = (ValidationNumbersError) o;
+
+        if(!status.equals(object.getStatus())){
+            return false;
+        }
+        return errorMessages.get(0).equals(object.getErrorMessages().get(0));
     }
 }

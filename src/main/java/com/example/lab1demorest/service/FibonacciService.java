@@ -1,6 +1,8 @@
 package com.example.lab1demorest.service;
 
 import com.example.lab1demorest.entity.Result;
+import com.example.lab1demorest.entity.ValidationNumbersError;
+import com.example.lab1demorest.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -9,16 +11,10 @@ import java.math.BigInteger;
 public class FibonacciService {
     // рекурсивный вариант уходит в overflow где-то на 40 индексе, поэтому идеальной реализацией будет через цикл
     public Result count(BigInteger index){
-        // пример INTERNAL_SERVER_ERROR
-        if(index == null){
-            throw new NullPointerException("throws NullPointerException");
-        }
-        else if(index.compareTo(BigInteger.valueOf(0)) < 0){
-            throw new NullPointerException("throws NullPointerException");
-        }
-        else if(index.compareTo(BigInteger.valueOf(1000)) > 0){
-            throw new NullPointerException("throws NullPointerException");
-        }
+       if(index.compareTo(BigInteger.valueOf(4)) == 0)
+            throw new NotFoundException("number " + index + " not found");
+//       if(index.compareTo(BigInteger.valueOf(44)) == 0)
+//           return new Result(BigInteger.valueOf(44),BigInteger.valueOf(0));
 
         BigInteger OldValue = BigInteger.valueOf(0);
         BigInteger Value = BigInteger.valueOf(1);

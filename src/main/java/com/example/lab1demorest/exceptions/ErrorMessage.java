@@ -3,8 +3,8 @@ package com.example.lab1demorest.exceptions;
 import java.util.ArrayList;
 
 public class ErrorMessage {
-    String status;
-    ArrayList<String> listOfErrors = new ArrayList<>();
+    private String status;
+    private ArrayList<String> listOfErrors = new ArrayList<>();
 
     ErrorMessage(String error){
         listOfErrors.add(error);

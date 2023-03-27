@@ -1,5 +1,7 @@
 package com.example.lab1demorest.entity;
 
+import com.example.lab1demorest.service.FibonacciService;
+
 import java.math.BigInteger;
 
 public class Result {
@@ -24,5 +26,20 @@ public class Result {
 
     public void setIndex(BigInteger index) {
         this.index = index;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (o == this) {
+            return true;
+        }
+
+        Result object = (Result) o;
+
+        if(!result.equals(object.getResult())){
+            return false;
+        }
+        return index.equals(object.getIndex());
     }
 }

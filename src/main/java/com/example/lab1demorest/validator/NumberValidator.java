@@ -17,7 +17,7 @@ public class NumberValidator {
         return true;
     }
 
-    public static boolean isEmpty(@Nullable String stringNum) {
+    public static boolean isEmpty(String stringNum) {
         return stringNum == null || "".equals(stringNum);
     }
 
@@ -28,6 +28,4 @@ public class NumberValidator {
     public static boolean isNegative(String stringNum) {
         return new BigInteger(stringNum).compareTo(BigInteger.valueOf(0)) < 0;
     }
-
-
 }
