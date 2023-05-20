@@ -1,7 +1,6 @@
 package com.example.lab1demorest.service;
 
 import com.example.lab1demorest.entity.Result;
-import com.example.lab1demorest.entity.ValidationNumbersError;
 import com.example.lab1demorest.exceptions.NotFoundException;
 import org.springframework.stereotype.Service;
 

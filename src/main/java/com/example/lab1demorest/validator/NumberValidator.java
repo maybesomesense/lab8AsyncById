@@ -1,6 +1,5 @@
 package com.example.lab1demorest.validator;
 
-import org.springframework.lang.Nullable;
 
 import java.math.BigInteger;
 
@@ -22,7 +21,7 @@ public class NumberValidator {
     }
 
     public static boolean isLong(String stringNum) {
-        return new BigInteger(stringNum).compareTo(BigInteger.valueOf(10000)) > 0;
+        return new BigInteger(stringNum).compareTo(BigInteger.valueOf(500)) > 0;
     }
 
     public static boolean isNegative(String stringNum) {

@@ -6,9 +6,10 @@ public class ErrorMessage {
     private String status;
     private ArrayList<String> listOfErrors = new ArrayList<>();
 
-    ErrorMessage(String error){
+    public ErrorMessage(String error){
         listOfErrors.add(error);
     }
+    public ErrorMessage(){}
 
     public String getStatus() {
         return status;
@@ -25,4 +26,6 @@ public class ErrorMessage {
     public void setListOfErrors(ArrayList<String> listOfErrors) {
         this.listOfErrors = listOfErrors;
     }
+
+    public void addError(String error){listOfErrors.add(error);}
 }

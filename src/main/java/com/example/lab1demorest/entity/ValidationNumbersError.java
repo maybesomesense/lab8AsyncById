@@ -25,6 +25,9 @@ public class ValidationNumbersError {
         this.status = status;
     }
 
+    public boolean isEmpty(){
+        return errorMessages.isEmpty();
+    }
     @Override
     public boolean equals(Object o) {
 

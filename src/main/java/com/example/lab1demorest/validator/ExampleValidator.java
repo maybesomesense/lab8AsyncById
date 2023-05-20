@@ -2,7 +2,6 @@ package com.example.lab1demorest.validator;
 
 import com.example.lab1demorest.controller.ExController;
 import com.example.lab1demorest.entity.ValidationNumbersError;
-//import io.micrometer.common.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

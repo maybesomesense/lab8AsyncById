@@ -1,12 +1,17 @@
 package com.example.lab1demorest.controller;
 
+import com.example.lab1demorest.database.RepositoryService;
+import com.example.lab1demorest.entity.Counters;
 import com.example.lab1demorest.entity.ResponsesSize;
 import com.example.lab1demorest.entity.Result;
 import com.example.lab1demorest.entity.ValidationNumbersError;
 import com.example.lab1demorest.exceptions.NotFoundException;
 import com.example.lab1demorest.memory.InMemoryStorage;
+import com.example.lab1demorest.service.AggregateService;
+import com.example.lab1demorest.service.CounterService;
 import com.example.lab1demorest.service.FibonacciService;
 import com.example.lab1demorest.validator.ExampleValidator;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,9 +33,17 @@ class ExControllerTest {
     private ExampleValidator exampleValidator;
     @Mock
     private InMemoryStorage inMemoryStorage;
+    @Mock
+    private CounterService counterService;
+    @Mock
+    private AggregateService aggregateService;
+    @Mock
+    private RepositoryService repositoryService;
 
     @InjectMocks
-    private ExController exController = new ExController(fibonacciService, exampleValidator, inMemoryStorage);
+    private ExController exController = new ExController(fibonacciService, exampleValidator,
+                                                        inMemoryStorage, counterService, aggregateService,
+                                                        repositoryService);
 
     @Test
     public void defaultTest(){
@@ -91,5 +104,17 @@ class ExControllerTest {
         ResponseEntity<Object> response = exController.getAllFibonacciAnswersSize();
         ResponsesSize result = (ResponsesSize) response.getBody();
         assertEquals(new ResponsesSize(0), result);
+    }
+
+    @Test
+    public void testCounters(){
+        when(counterService.getSync()).thenReturn(1);
+        when(counterService.getUnsync()).thenReturn(1);
+
+        ResponseEntity<Object> responseEntity = exController.getCounters();
+
+        Counters counters = (Counters) responseEntity.getBody();
+
+        assertEquals(counters, new Counters(1,1));
     }
 }
